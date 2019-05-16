@@ -11,8 +11,8 @@ require (
 	github.com/cosmos/cosmos-sdk v0.33.0
 	github.com/cosmos/go-bip39 v0.0.0-20180618194314-52158e4697b8
 	github.com/cosmos/ledger-cosmos-go v0.9.8
-	github.com/cosmos/sdk-application-tutorial v0.0.0-20190513182836-50c050185505
 	github.com/davecgh/go-spew v1.1.1
+	github.com/haoming06/sdk-application-tutorial v0.0.0-20190516060139-c9fe107d0bf3
 	github.com/ethereum/go-ethereum v1.8.23
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/go-kit/kit v0.8.0
