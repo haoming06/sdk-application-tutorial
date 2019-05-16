@@ -3,7 +3,6 @@ package main
 import (
 	"os"
 	"path"
-
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/keys"
 	"github.com/cosmos/cosmos-sdk/client/lcd"
@@ -13,13 +12,12 @@ import (
 	"github.com/spf13/viper"
 	amino "github.com/tendermint/go-amino"
 	"github.com/tendermint/tendermint/libs/cli"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authcmd "github.com/cosmos/cosmos-sdk/x/auth/client/cli"
 	auth "github.com/cosmos/cosmos-sdk/x/auth/client/rest"
 	bankcmd "github.com/cosmos/cosmos-sdk/x/bank/client/cli"
 	bank "github.com/cosmos/cosmos-sdk/x/bank/client/rest"
-	app "github.com/haoming06/sdk-application-tutorial"
+	app "sdk-application-tutorial"
 	nsclient "github.com/haoming06/sdk-application-tutorial/x/nameservice/client"
 	nsrest "github.com/haoming06/sdk-application-tutorial/x/nameservice/client/rest"
 )
