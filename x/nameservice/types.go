@@ -10,6 +10,7 @@ var MinNamePrice = sdk.Coins{sdk.NewInt64Coin("nametoken", 1)}
 // Whois is a struct that contains all the metadata of a name
 type Whois struct {
 	Value string         `json:"value"`
+	Tel   string         `json:"tel"`
 	Owner sdk.AccAddress `json:"owner"`
 	Price sdk.Coins      `json:"price"`
 }

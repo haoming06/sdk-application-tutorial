@@ -2,7 +2,10 @@ package client
 
 import (
 	"github.com/cosmos/cosmos-sdk/client"
-	nameservicecmd "github.com/cosmos/sdk-application-tutorial/x/nameservice/client/cli"
+	nameservicecmd "github.com/haoming06/sdk-application-tutorial/x/nameservice/client/cli"
+
+	// nameservicecmd "nameservice"
+
 	"github.com/spf13/cobra"
 	amino "github.com/tendermint/go-amino"
 )
@@ -44,6 +47,7 @@ func (mc ModuleClient) GetTxCmd() *cobra.Command {
 	namesvcTxCmd.AddCommand(client.PostCommands(
 		nameservicecmd.GetCmdBuyName(mc.cdc),
 		nameservicecmd.GetCmdSetName(mc.cdc),
+		nameservicecmd.GetCmdSetTel(mc.cdc),
 	)...)
 
 	return namesvcTxCmd

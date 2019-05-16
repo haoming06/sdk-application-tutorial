@@ -14,6 +14,8 @@ func NewHandler(keeper Keeper) sdk.Handler {
 			return handleMsgSetName(ctx, keeper, msg)
 		case MsgBuyName:
 			return handleMsgBuyName(ctx, keeper, msg)
+		case MsgSetTel:
+			return handleMsgSetTel(ctx, keeper, msg)
 		default:
 			errMsg := fmt.Sprintf("Unrecognized nameservice Msg type: %v", msg.Type())
 			return sdk.ErrUnknownRequest(errMsg).Result()
@@ -48,5 +50,13 @@ func handleMsgBuyName(ctx sdk.Context, keeper Keeper, msg MsgBuyName) sdk.Result
 	}
 	keeper.SetOwner(ctx, msg.Name, msg.Buyer)
 	keeper.SetPrice(ctx, msg.Name, msg.Bid)
+	return sdk.Result{}
+}
+
+func handleMsgSetTel(ctx sdk.Context, keeper Keeper, msg MsgSetTel) sdk.Result {
+	if !msg.Owner.Equals(keeper.GetOwner(ctx, msg.Name)) {
+		return sdk.ErrUnauthorized("Incorrect Owner").Result()
+	}
+	keeper.SetTel(ctx, msg.Name, msg.Tel)
 	return sdk.Result{}
 }

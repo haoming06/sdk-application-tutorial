@@ -71,7 +71,6 @@ func queryWhois(ctx sdk.Context, path []string, req abci.RequestQuery, keeper Ke
 	if err2 != nil {
 		panic("could not marshal result to JSON")
 	}
-
 	return bz, nil
 }
 

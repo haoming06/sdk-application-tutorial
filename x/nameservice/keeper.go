@@ -92,3 +92,13 @@ func (k Keeper) GetNamesIterator(ctx sdk.Context) sdk.Iterator {
 	store := ctx.KVStore(k.storeKey)
 	return sdk.KVStorePrefixIterator(store, nil)
 }
+
+func (k Keeper) SetTel(ctx sdk.Context, name string, tel string) {
+	whois := k.GetWhois(ctx, name)
+	whois.Tel = tel
+	k.SetWhois(ctx, name, whois)
+}
+
+func (k Keeper) GetTel(ctx sdk.Context, name string) string {
+	return k.GetWhois(ctx, name).Tel
+}

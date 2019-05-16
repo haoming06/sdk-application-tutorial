@@ -8,4 +8,5 @@ import (
 func RegisterCodec(cdc *codec.Codec) {
 	cdc.RegisterConcrete(MsgSetName{}, "nameservice/SetName", nil)
 	cdc.RegisterConcrete(MsgBuyName{}, "nameservice/BuyName", nil)
+	cdc.RegisterConcrete(MsgSetTel{}, "nameservice/SetTel", nil)
 }

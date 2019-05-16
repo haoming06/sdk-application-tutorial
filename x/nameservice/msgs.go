@@ -102,3 +102,44 @@ func (msg MsgBuyName) GetSignBytes() []byte {
 func (msg MsgBuyName) GetSigners() []sdk.AccAddress {
 	return []sdk.AccAddress{msg.Buyer}
 }
+
+type MsgSetTel struct {
+	Name  string
+	Tel   string
+	Owner sdk.AccAddress
+}
+
+// NewSetTel is the constructor function for MsgBuyName
+func NewMsgSetTel(name string, tel string, owner sdk.AccAddress) MsgSetTel {
+	return MsgSetTel{
+		Name:  name,
+		Tel:   tel,
+		Owner: owner,
+	}
+}
+
+func (msg MsgSetTel) Route() string {
+	return "nameservice"
+}
+
+func (msg MsgSetTel) Type() string {
+	return "set_tel"
+}
+
+func (msg MsgSetTel) ValidateBasic() sdk.Error {
+	if len(msg.Tel) == 0 {
+		return sdk.ErrUnknownRequest("Tel cannot be empty")
+	}
+	return nil
+}
+
+func (msg MsgSetTel) GetSignBytes() []byte {
+	b, err := json.Marshal(msg)
+	if err != nil {
+		panic(err)
+	}
+	return sdk.MustSortJSON(b)
+}
+func (msg MsgSetTel) GetSigners() []sdk.AccAddress {
+	return []sdk.AccAddress{msg.Owner}
+}
